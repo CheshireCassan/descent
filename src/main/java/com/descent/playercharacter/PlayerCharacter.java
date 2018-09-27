@@ -1,5 +1,6 @@
 package com.descent.playercharacter;
 
+import com.descent.EnumStatBonuses;
 import com.descent.enemy.Enemy;
 
 import java.util.Random;
@@ -116,9 +117,17 @@ public class PlayerCharacter {
         pc.setActionPoints(pc.getActionPoints() - 1);
     }
 
-    public void basicDefend (PlayerCharacter pc) {
+    public void basicDefend(PlayerCharacter pc) {
         pc.setArmour(pc.getArmour() + pc.getEndurance());
         pc.setActionPoints(pc.getActionPoints() - 1);
+    }
+
+    public PlayerCharacterDemonForm transform(PlayerCharacter pc){
+        PlayerCharacterDemonForm pcdf = new PlayerCharacterDemonForm(
+                pc.getHealth() + 200, pc.getArmour(), pc.getGold(), pc.getStrength() * 2,
+                pc.getDodge() + EnumStatBonuses.largeDodge.getStat(), pc.getEndurance() * 2,
+                pc.getActionPoints() + 2, pc.getCritChance() + EnumStatBonuses.largeCritChance.getStat());
+        return pcdf;
     }
 
 }
