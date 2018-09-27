@@ -1,4 +1,6 @@
-package com.descent;
+package com.descent.enemy;
+
+import com.descent.playercharacter.PlayerCharacter;
 
 import java.util.Random;
 

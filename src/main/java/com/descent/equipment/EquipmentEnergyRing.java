@@ -1,4 +1,6 @@
-package com.descent;
+package com.descent.equipment;
+
+import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentEnergyRing extends Equipment {
     @Override

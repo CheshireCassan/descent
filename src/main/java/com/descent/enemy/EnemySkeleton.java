@@ -1,4 +1,4 @@
-package com.descent;
+package com.descent.enemy;
 
 public class EnemySkeleton extends Enemy {
     public EnemySkeleton(int health, int armour, int strength, int dodge, int lootChance, int critChance) {

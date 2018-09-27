@@ -1,6 +1,8 @@
-package com.descent;
+package com.descent.enemy;
 
-public class EnemyBrute extends Enemy{
+import com.descent.EnumStatBonuses;
+
+public class EnemyBrute extends Enemy {
     public EnemyBrute(int health, int armour, int strength, int dodge, int lootChance, int critChance) {
         super(health, armour, strength, dodge, lootChance, critChance);
     }

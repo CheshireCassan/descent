@@ -1,4 +1,7 @@
-package com.descent;
+package com.descent.equipment;
+
+import com.descent.EnumStatBonuses;
+import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentStrangeAmuletB extends Equipment {
     @Override

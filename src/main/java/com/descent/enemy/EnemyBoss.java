@@ -1,4 +1,4 @@
-package com.descent;
+package com.descent.enemy;
 
 public class EnemyBoss extends Enemy {
 

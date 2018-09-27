@@ -1,5 +1,8 @@
 package com.descent;
 
+import com.descent.enemy.Enemy;
+import com.descent.playercharacter.PlayerCharacter;
+
 import java.util.Scanner;
 
 public class Combat {
@@ -9,10 +12,15 @@ public class Combat {
     public void combatCycle(PlayerCharacter pc, Enemy enemy) {
         int pcHealth = pc.getHealth();
         int enemyHealth = enemy.getHealth();
+        int pcStartingActionPoints = pc.getActionPoints();
+        int pcActionPoints = pcStartingActionPoints;
 
         while (pcHealth > 0 && enemyHealth > 0) {
-            System.out.println("Player HP: " + pcHealth + "  |  Enemy HP: " + enemyHealth);
+
+            //TODO TEXT BASED SYSTEM IS ONLY TEMP, REDO ONCE ASSETS ARE READY, IMPLEMENT ACTIONS FROM THEIR RELEVANT CLASSES
+            System.out.println("Player HP: " + pcHealth + "  |  enemy HP: " + enemyHealth);
             if (playerTurn) {
+                pcActionPoints = pcStartingActionPoints;
                 System.out.println("Your turn! Available actions:");
                 System.out.println("1. Attack");
                 System.out.println("2. Defend");
@@ -28,7 +36,7 @@ public class Combat {
             }
             else if (!playerTurn){
                 System.out.println();
-                System.out.println("Enemy attacks for " + enemy.getStrength() + " damage!");
+                System.out.println("enemy attacks for " + enemy.getStrength() + " damage!");
                 pcHealth -= enemy.getStrength();
                 playerTurn = true;
             }

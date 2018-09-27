@@ -1,4 +1,4 @@
-package com.descent;
+package com.descent.playercharacter;
 
 public class PlayerCharacterDemonForm extends PlayerCharacter {
 
