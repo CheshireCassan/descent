@@ -12,5 +12,6 @@ public class PlayerCharacterDemonForm extends PlayerCharacter {
         int startingCrit = pc.getCritChance();
         pc.basicAttack(pc, enemy);
         pc.setCritChance(startingCrit);
+        pc.setActionPoints(pc.getActionPoints() - 1);
     }
 }
