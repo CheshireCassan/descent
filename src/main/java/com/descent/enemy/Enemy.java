@@ -15,7 +15,7 @@ public class Enemy implements IEnemyAbilities {
     private Random rnd = new Random();
 
 
-    public Enemy(int health, int armour, int strength, int dodge, int lootChance, int critChance) {
+    public Enemy (int health, int armour, int strength, int dodge, int lootChance, int critChance) {
         this.health = health;
         this.armour = armour;
         this.strength = strength;
