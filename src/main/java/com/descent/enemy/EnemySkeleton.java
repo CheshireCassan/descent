@@ -12,5 +12,4 @@ public class EnemySkeleton extends Enemy {
     public void reconstruct(EnemySkeleton enemy){
         enemy.setHealth(enemy.getHealth() + EnumStatBonuses.medHealth.getStat());
     }
-
 }
