@@ -27,17 +27,18 @@ public class Combat {
                 int selection = scanner.nextInt();
                 if (selection == 1) {
                     System.out.println("You attacked for " + pc.getStrength() + " damage!");
-                    enemyHealth -= pc.getStrength();
+                    pc.basicAttack(pc, enemy);
                 }
                 else if (selection == 2) {
                     System.out.println("You gained 10 armour!");
+                    pc.basicDefend(pc);
                 }
                 playerTurn = false;
             }
             else if (!playerTurn){
                 System.out.println();
                 System.out.println("enemy attacks for " + enemy.getStrength() + " damage!");
-                pcHealth -= enemy.getStrength();
+                enemy.basicAttack(enemy, pc);
                 playerTurn = true;
             }
         }

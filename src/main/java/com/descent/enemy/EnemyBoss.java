@@ -1,5 +1,7 @@
 package com.descent.enemy;
 
+import com.descent.EnumStatBonuses;
+
 public class EnemyBoss extends Enemy {
 
     public EnemyBoss(int health, int armour, int strength, int dodge, int lootChance, int critChance) {
@@ -11,6 +13,6 @@ public class EnemyBoss extends Enemy {
     }
 
     public void buffUp(EnemyBoss boss) {
-        boss.setStrength(boss.getStrength() + 5);
+        boss.setStrength(boss.getStrength() + EnumStatBonuses.largeStrength.getStat());
     }
 }
