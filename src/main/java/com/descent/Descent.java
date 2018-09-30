@@ -1,15 +1,23 @@
 package com.descent;
 
+import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
+import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Descent extends Application{
 
@@ -38,13 +46,20 @@ public class Descent extends Application{
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        gc.setFill(Color.RED);
-        gc.setStroke(Color.BLACK);
-        gc.setLineWidth(2);
-        Font theFont = Font.font ("Times New Roman", FontWeight.BOLD, 48);
-        gc.setFont(theFont);
-        gc.fillText("DESCENT", 60, 50);
-        gc.strokeText("DESCENT", 60, 50);
+        Image background = new Image("backgrounds/mainmenubg.png");
+        gc.drawImage(background, 0, 0);
+        Image logo = new Image("misc/logo.png");
+        gc.drawImage(logo, 240, 200);
+
+        Image beginBtn = new Image("buttons/beginbtn.png");
+        gc.drawImage(beginBtn, 330, 500);
+
+        final long startNanoTime = System.nanoTime();
+        new AnimationTimer() {
+            public void handle(long currentNanoTime) {
+
+            }
+        }.start();
 
         theStage.show();
     }
