@@ -1,12 +1,16 @@
 package com.descent;
 
+import com.descent.fx.MapScreen;
+import com.descent.fx.TitleScreen;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class Descent extends Application{
@@ -18,7 +22,6 @@ public class Descent extends Application{
 //        playercharacter pc = new playercharacter(100, 0, 0, 10, 15, 10, 5, 5);
 //        EnemySkeleton enemy1 = new EnemySkeleton(70, 0, 10, 5, 20, 5);
 //
-//        //test
 //        Combat fight = new Combat();
 //        fight.combatCycle(pc, enemy1);
 
@@ -36,13 +39,8 @@ public class Descent extends Application{
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
-        Image background = new Image("backgrounds/mainmenubg.png");
-        gc.drawImage(background, 0, 0);
-        Image logo = new Image("misc/logo.png");
-        gc.drawImage(logo, 240, 200);
-
-        Image beginBtn = new Image("buttons/beginbtn.png");
-        gc.drawImage(beginBtn, 330, 500);
+        TitleScreen titleScreen = new TitleScreen();
+        titleScreen.showTitleScreen(canvas, gc, theScene);
 
 //        Image background = new Image("backgrounds/forestbg.png");
 //        gc.drawImage(background, 0, 0);
@@ -60,4 +58,7 @@ public class Descent extends Application{
 
         theStage.show();
     }
+
+
+
 }
