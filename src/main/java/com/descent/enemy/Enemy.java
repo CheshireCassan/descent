@@ -104,4 +104,8 @@ public class Enemy implements IEnemyAbilities {
     public void basicDefend(Enemy enemy) {
         enemy.setArmour(enemy.getArmour() + 10);
     }
+
+    @Override
+    public void selfBuff(Enemy enemy){
+    }
 }

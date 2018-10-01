@@ -16,15 +16,17 @@ public class MapGen {
 
     private void encounterChoice(){
 
-        if (totalTileCount >= 10){
+        if (totalTileCount == 10)
             createBoss();
-        }
+
+        else if (totalTileCount == 9)
+            createMerchant();
 
         else {
             int encounterID = rnd.nextInt(3);
 
             //making sure there isn't more than the desired amount of each map tile
-            while ((merchantCount >= 2 && encounterID == 1) || (encounterID == 1 && totalTileCount < 3))
+            while ((merchantCount >= 1 && encounterID == 1) || (encounterID == 1 && totalTileCount < 3))
                 encounterID = rnd.nextInt(3);
             while (encounterCount >= 4 && encounterID == 2)
                 encounterID = rnd.nextInt(3);

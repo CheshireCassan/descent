@@ -13,7 +13,8 @@ public class EnemyBoss extends Enemy {
         boss.setArmour(100);
     }
 
-    public void buffUp(EnemyBoss boss) {
+    @Override
+    public void selfBuff(Enemy boss){
         boss.setStrength(boss.getStrength() + EnumStatBonuses.largeStrength.getStat());
     }
 

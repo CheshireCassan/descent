@@ -10,7 +10,8 @@ public class EnemyBrute extends Enemy {
     public EnemyBrute(){
     }
 
-    public void gainStrength(EnemyBrute enemy) {
+    @Override
+    public void selfBuff(Enemy enemy){
         enemy.setStrength(enemy.getStrength() + EnumStatBonuses.smallStrength.getStat());
     }
 }

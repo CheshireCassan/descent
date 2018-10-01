@@ -9,7 +9,8 @@ public class EnemySkeleton extends Enemy {
     public EnemySkeleton(){
     }
 
-    public void reconstruct(EnemySkeleton enemy){
+    @Override
+    public void selfBuff(Enemy enemy){
         enemy.setHealth(enemy.getHealth() + EnumStatBonuses.medHealth.getStat());
     }
 }

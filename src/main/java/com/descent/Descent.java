@@ -1,23 +1,13 @@
 package com.descent;
 
 import javafx.animation.AnimationTimer;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.effect.Reflection;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Descent extends Application{
 
@@ -53,6 +43,13 @@ public class Descent extends Application{
 
         Image beginBtn = new Image("buttons/beginbtn.png");
         gc.drawImage(beginBtn, 330, 500);
+
+//        Image background = new Image("backgrounds/forestbg.png");
+//        gc.drawImage(background, 0, 0);
+//
+//        Image player = new Image("characters/playercharacter2.png");
+//        gc.drawImage(player, 150, 300);
+
 
         final long startNanoTime = System.nanoTime();
         new AnimationTimer() {

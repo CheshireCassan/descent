@@ -9,7 +9,8 @@ public class EnemyBat extends Enemy {
     public EnemyBat(){
     }
 
-    public void evasiveManeuvers(EnemyBat enemy){
+    @Override
+    public void selfBuff(Enemy enemy){
         enemy.setDodge(enemy.getDodge() + EnumStatBonuses.medDodge.getStat());
     }
 }
