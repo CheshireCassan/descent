@@ -1,4 +1,4 @@
-package com.descent;
+package com.descent.encounters;
 
 import com.descent.playercharacter.PlayerCharacter;
 

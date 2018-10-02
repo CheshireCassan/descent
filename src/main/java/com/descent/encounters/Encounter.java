@@ -1,4 +1,4 @@
-package com.descent;
+package com.descent.encounters;
 
 public class Encounter {
 

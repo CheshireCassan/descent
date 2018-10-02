@@ -18,11 +18,16 @@ public class TitleScreen {
         Image beginBtn = new Image("buttons/beginbtn.png");
         gc.drawImage(beginBtn, 330, 500);
 
-        theScene.setOnMouseClicked(
-                e -> {
-                    MapScreen ms = new MapScreen();
-                    ms.showMap(canvas, gc);
-                });
+        boolean titleScreenOn = true;
+
+        while (titleScreenOn) {
+            theScene.setOnMouseClicked(
+                    e -> {
+                        MapScreen ms = new MapScreen();
+                        ms.createMap(canvas, gc);
+                    });
+            titleScreenOn = false;
+        }
 
     }
 

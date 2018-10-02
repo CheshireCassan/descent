@@ -9,6 +9,8 @@ public class EnemyBoss extends Enemy {
         super(health, armour, strength, dodge, lootChance, critChance);
     }
 
+    public EnemyBoss(){}
+
     public void tankUp(EnemyBoss boss) {
         boss.setArmour(100);
     }
