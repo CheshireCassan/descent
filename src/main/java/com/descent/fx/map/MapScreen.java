@@ -1,10 +1,8 @@
-package com.descent.fx;
+package com.descent.fx.map;
 
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-
-import java.awt.*;
 
 public class MapScreen {
 
@@ -12,7 +10,6 @@ public class MapScreen {
 
         Image mapBG = new Image("backgrounds/mapbg.png");
         gc.drawImage(mapBG, 0, 0);
-
     }
 
 }
