@@ -75,21 +75,6 @@ public class CombatFX {
         playerActions.getChildren().add(endTurnBtn);
 
         ((Group)theScene.getRoot()).getChildren().add(playerActions);
-
-        gc.setFill( Color.BLACK );
-        gc.setStroke( Color.BLACK );
-        gc.setLineWidth(2);
-        Font theFont = Font.font( "Times New Roman", FontWeight.BOLD, 22 );
-        gc.setFont( theFont );
-
-        gc.fillText( "Health: " + pc.getHealth(), 230, 580 );
-        gc.fillText( "Armour: " + pc.getArmour(), 230, 610 );
-
-        gc.fillText( "Health: " + enemy.getHealth(), 700, 580 );
-        gc.fillText( "Armour: " + enemy.getArmour(), 700, 610 );
-
-
-
     }
 
     public void updateScreen(GraphicsContext gc, Scene theScene, PlayerCharacter pc, Enemy enemy) {
@@ -113,6 +98,12 @@ public class CombatFX {
         else if (enemy instanceof EnemyBrute){
             gc.drawImage(enemybrute, 600, 200);
         }
+
+        gc.setFill( Color.BLACK );
+        gc.setStroke( Color.BLACK );
+        gc.setLineWidth(2);
+        Font theFont = Font.font( "Times New Roman", FontWeight.BOLD, 22 );
+        gc.setFont( theFont );
 
         gc.fillText( "Health: " + pc.getHealth(), 230, 580 );
         gc.fillText( "Armour: " + pc.getArmour(), 230, 610 );

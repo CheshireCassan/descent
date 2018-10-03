@@ -15,12 +15,10 @@ import javafx.scene.layout.HBox;
 
 public class TitleScreen {
 
-    boolean titleScreenOn;
-
     public void showTitleScreen(Canvas canvas, GraphicsContext gc, Scene theScene) {
 
         PlayerCharacter pc = new PlayerCharacter(
-                100, 0, 0, 10, 10, 5, 3, 5);
+                100, 0, 0, 10, 10, 10, 3, 5);
 
         Image titleBG = new Image("backgrounds/mainmenubg.png");
         gc.drawImage(titleBG, 0, 0);
