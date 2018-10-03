@@ -14,13 +14,6 @@ public class Descent extends Application{
     public static void main(String[] args) {
 
         launch(args);
-
-//        playercharacter pc = new playercharacter(100, 0, 0, 10, 15, 10, 5, 5);
-//        EnemySkeleton enemy1 = new EnemySkeleton(70, 0, 10, 5, 20, 5);
-//
-//        Combat fight = new Combat();
-//        fight.combatCycle(pc, enemy1);
-
     }
 
     public void start(Stage theStage) {

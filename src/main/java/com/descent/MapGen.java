@@ -20,6 +20,8 @@ public class MapGen {
 
     private List<MapTile> mapTiles = new ArrayList<>();
 
+    private List<Integer> encounterIDs = new ArrayList<>();
+
     public void generateMap() {
 
         for (int i = 0; i <= DESIRED_TILE_COUNT; i++) {
@@ -30,7 +32,6 @@ public class MapGen {
                 // Tile before the boss should always be a merchant
             else if (totalTileCount == DESIRED_TILE_COUNT - 1)
                 createFinalMerchant();
-
 
             else {
                 int encounterID = rnd.nextInt(3);
@@ -64,6 +65,7 @@ public class MapGen {
         enemyCount++;
         totalTileCount++;
         mapTiles.add(new MapTile());
+        encounterIDs.add(2);
     }
 
     private Enemy enemyChoice(){
@@ -83,6 +85,7 @@ public class MapGen {
         merchantCount++;
         totalTileCount++;
         mapTiles.add(new MapTile());
+        encounterIDs.add(1);
     }
 
     private void createFinalMerchant() {
@@ -94,14 +97,18 @@ public class MapGen {
         encounterCount++;
         totalTileCount++;
         mapTiles.add(new MapTile());
+        encounterIDs.add(0);
     }
 
     private void createBoss(){
-        EnemyBoss boss = new EnemyBoss();
         mapTiles.add(new BossTile());
     }
 
     public List<MapTile> getMapTiles(){
         return mapTiles;
+    }
+
+    public List<Integer> getEncounterIDs(){
+        return encounterIDs;
     }
 }

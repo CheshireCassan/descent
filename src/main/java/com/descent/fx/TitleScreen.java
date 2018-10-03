@@ -24,7 +24,7 @@ public class TitleScreen {
             theScene.setOnMouseClicked(
                     e -> {
                         MapScreen ms = new MapScreen();
-                        ms.createMap(canvas, gc);
+                        ms.createMap(canvas, gc, theScene);
                     });
             titleScreenOn = false;
         }
