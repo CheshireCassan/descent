@@ -19,7 +19,6 @@ public class MapGen {
     private int totalTileCount = 0;
 
     private List<MapTile> mapTiles = new ArrayList<>();
-
     private List<Integer> encounterIDs = new ArrayList<>();
 
     public void generateMap() {
@@ -39,7 +38,7 @@ public class MapGen {
                 //making sure there isn't more than the desired amount of each map tile
                 while ((merchantCount >= 1 && encounterID == 1) || (encounterID == 1 && totalTileCount < 3))
                     encounterID = rnd.nextInt(3);
-                while (encounterCount >= 4 && encounterID == 2)
+                while (encounterCount >= 3 && encounterID == 2)
                     encounterID = rnd.nextInt(3);
                 while (enemyCount >= 7 && encounterID == 0)
                     encounterID = rnd.nextInt(3);
@@ -65,7 +64,7 @@ public class MapGen {
         enemyCount++;
         totalTileCount++;
         mapTiles.add(new MapTile());
-        encounterIDs.add(2);
+        encounterIDs.add(0);
     }
 
     private Enemy enemyChoice(){
@@ -97,7 +96,7 @@ public class MapGen {
         encounterCount++;
         totalTileCount++;
         mapTiles.add(new MapTile());
-        encounterIDs.add(0);
+        encounterIDs.add(2);
     }
 
     private void createBoss(){

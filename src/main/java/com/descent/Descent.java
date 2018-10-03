@@ -1,6 +1,7 @@
 package com.descent;
 
 import com.descent.fx.TitleScreen;
+import com.descent.playercharacter.PlayerCharacter;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -17,6 +18,7 @@ public class Descent extends Application{
     }
 
     public void start(Stage theStage) {
+
         theStage.setTitle( "Descent" );
 
         Group root = new Group();
@@ -30,12 +32,6 @@ public class Descent extends Application{
 
         TitleScreen titleScreen = new TitleScreen();
         titleScreen.showTitleScreen(canvas, gc, theScene);
-
-//        Image background = new Image("backgrounds/forestbg.png");
-//        gc.drawImage(background, 0, 0);
-//
-//        Image player = new Image("characters/playercharacter2.png");
-//        gc.drawImage(player, 150, 300);
 
 
         final long startNanoTime = System.nanoTime();
