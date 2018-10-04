@@ -1,5 +1,6 @@
 package com.descent.fx;
 
+import com.descent.Inventory;
 import com.descent.encounters.Merchant;
 import com.descent.fx.map.MapScreen;
 import com.descent.playercharacter.PlayerCharacter;
@@ -17,18 +18,11 @@ import javafx.scene.text.FontWeight;
 
 public class MerchantFX {
 
-
-    public void createMerchant(){
-
-    }
-
     public void showMerchant(GraphicsContext gc, Scene theScene, PlayerCharacter pc) {
-        updateStatInfo(pc, gc);
-
+        updateStatInfo(pc, gc, theScene);
         HBox leaveBtnBox = new HBox();
-        leaveBtnBox.setLayoutX(450);
+        leaveBtnBox.setLayoutX(355);
         leaveBtnBox.setLayoutY(500);
-
         Merchant merch = new Merchant();
 
         Button healBtn = new Button("Heal (50 Gold)");
@@ -37,11 +31,23 @@ public class MerchantFX {
                 public void handle(ActionEvent event) {
                     if (pc.getGold() >= 50) {
                         merch.healPlayer(pc);
-                        updateStatInfo(pc, gc);
+                        updateStatInfo(pc, gc, theScene);
                     }
                 }
             });
         leaveBtnBox.getChildren().add(healBtn);
+
+        Button buyItemBtn = new Button("Buy Equipment (" + merch.getEquipCost() + " Gold)");
+        buyItemBtn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (pc.getGold() >= 300) {
+                    merch.buyEquipment(pc);
+                    updateStatInfo(pc, gc, theScene);
+                }
+            }
+        });
+        leaveBtnBox.getChildren().add(buyItemBtn);
 
         Button leaveBtn = new Button("Leave");
         leaveBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -57,7 +63,7 @@ public class MerchantFX {
         ((Group)theScene.getRoot()).getChildren().add(leaveBtnBox);
     }
 
-    private void updateStatInfo(PlayerCharacter pc, GraphicsContext gc){
+    private void updateStatInfo(PlayerCharacter pc, GraphicsContext gc, Scene theScene){
         gc.clearRect(0, 0, 1080, 720);
         Image shopBG = new Image("backgrounds/mainmenubg.png");
         gc.drawImage(shopBG, 0, 0);
@@ -68,6 +74,9 @@ public class MerchantFX {
 
         gc.fillText( "Health: " + pc.getHealth(), 65, 40 );
         gc.fillText("Gold: " + pc.getGold(), 65, 70);
+
+        Inventory inven = new Inventory();
+        inven.displayInventory(pc, gc, theScene);
     }
 
 }

@@ -2,7 +2,10 @@ package com.descent.playercharacter;
 
 import com.descent.EnumStatBonuses;
 import com.descent.enemy.Enemy;
+import com.descent.equipment.Equipment;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class PlayerCharacter {
@@ -14,8 +17,17 @@ public class PlayerCharacter {
     private int endurance;
     private int actionPoints;
     private int critChance;
+    private List<Equipment> inventory = new ArrayList<>();
+
+    public List<Equipment> getInventory() {
+        return inventory;
+    }
 
     private Random rnd = new Random();
+
+    public void addToInventory(Equipment item){
+        inventory.add(item);
+    }
 
     public PlayerCharacter(int health, int armour, int gold, int strength, int dodge, int endurance, int actionPoints, int critChance) {
         this.health = health;
@@ -109,6 +121,7 @@ public class PlayerCharacter {
             else {
                 enemyHP = enemyHP + enemyArmor - totalDamage;
                 enemy.setHealth(enemyHP);
+                enemy.setArmour(0);
             }
         }
         else {

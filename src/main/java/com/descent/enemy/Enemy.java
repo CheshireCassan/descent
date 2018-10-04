@@ -93,6 +93,7 @@ public class Enemy implements IEnemyAbilities {
             else {
                 pcHP = pcHP + pcArmor - totalDamage;
                 pc.setHealth(pcHP);
+                pc.setArmour(0);
             }
         }
         else {
