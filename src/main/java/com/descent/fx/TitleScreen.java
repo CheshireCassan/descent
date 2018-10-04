@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -15,10 +14,10 @@ import javafx.scene.layout.HBox;
 
 public class TitleScreen {
 
-    public void showTitleScreen(Canvas canvas, GraphicsContext gc, Scene theScene) {
+    public void showTitleScreen(GraphicsContext gc, Scene theScene) {
 
         PlayerCharacter pc = new PlayerCharacter(
-                100, 0, 0, 10, 10, 10, 3, 5);
+                100, 0, 0, 10, 10, 10, 2, 5);
 
         Image titleBG = new Image("backgrounds/mainmenubg.png");
         gc.drawImage(titleBG, 0, 0);

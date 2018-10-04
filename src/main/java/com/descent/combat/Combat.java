@@ -2,11 +2,20 @@ package com.descent.combat;
 
 import com.descent.enemy.Enemy;
 import com.descent.playercharacter.PlayerCharacter;
+import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.util.Random;
 import java.util.Scanner;
 
 public class Combat {
+
+    private boolean playerTurn = true;
+
     public boolean isPlayerTurn() {
         return playerTurn;
     }
@@ -15,10 +24,9 @@ public class Combat {
         this.playerTurn = playerTurn;
     }
 
-    private boolean playerTurn = true;
     private Random rnd = new Random();
 
-    public void combatCycle(PlayerCharacter pc, Enemy enemy) {
+    public void combatCycle(PlayerCharacter pc, Enemy enemy, GraphicsContext gc, Scene theScene) {
 
         while (pc.getHealth() > 0 && enemy.getHealth() > 0) {
 
@@ -42,19 +50,5 @@ public class Combat {
                 playerTurn = true;
             }
         }
-
-        if (pc.getHealth() <= 0) {
-            System.out.println("GAME OVER");
-        }
-        else {
-            System.out.println("VICTORY");
-            lootDrop(enemy.getLootChance(), pc);
-        }
-    }
-
-    private void lootDrop(int lootChance, PlayerCharacter pc){
-        int totalGold = pc.getGold() + 10 * lootChance;
-        pc.setGold(totalGold);
-        System.out.println("You now have " + totalGold + " gold!");
     }
 }

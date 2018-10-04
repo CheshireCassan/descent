@@ -31,7 +31,7 @@ public class Descent extends Application{
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
         TitleScreen titleScreen = new TitleScreen();
-        titleScreen.showTitleScreen(canvas, gc, theScene);
+        titleScreen.showTitleScreen(gc, theScene);
 
 
         final long startNanoTime = System.nanoTime();

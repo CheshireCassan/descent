@@ -99,13 +99,13 @@ public class MapScreen {
                 } else {
                     Button questionBtn = new Button();
                     questionBtn.setGraphic(new ImageView(questionTile));
-                    int tileNumber = i;
                     questionBtn.setOnAction(new EventHandler<ActionEvent>() {
                         @Override
                         public void handle(ActionEvent event) {
                             clearScene(bossVBox, finalShopVBox, encounterHBox1, encounterHBox2);
                             Encounter encounter = new Encounter();
                             encounter.questionTileClick(encounterIDs, gc, theScene, pc);
+
                         }
                     });
 
@@ -120,6 +120,8 @@ public class MapScreen {
             ((Group) theScene.getRoot()).getChildren().add(bossVBox);
             ((Group) theScene.getRoot()).getChildren().add(encounterHBox1);
             ((Group) theScene.getRoot()).getChildren().add(encounterHBox2);
+
+
         }
 
         public void clearScene(VBox vbox1, VBox vbox2, HBox hbox1, HBox hbox2){

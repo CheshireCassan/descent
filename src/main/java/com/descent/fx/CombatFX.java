@@ -1,12 +1,12 @@
 package com.descent.fx;
 
+import com.descent.Descent;
 import com.descent.combat.Combat;
 import com.descent.enemy.*;
 import com.descent.fx.map.MapScreen;
 import com.descent.playercharacter.PlayerCharacter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.print.PageLayout;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;
@@ -32,12 +32,16 @@ public class CombatFX {
         playerActions.setLayoutX(100);
         playerActions.setLayoutY(650);
 
+        int startingActionPoints = pc.getActionPoints();
+
         Button attackBtn = new Button("Basic Attack");
         attackBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pc.basicAttack(pc, enemy);
-                updateScreen(gc, theScene, pc, enemy);
+                if (pc.getActionPoints() > 0) {
+                    pc.basicAttack(pc, enemy);
+                    updateScreen(gc, theScene, pc, enemy);
+                }
             }
         });
         playerActions.getChildren().add(attackBtn);
@@ -46,8 +50,11 @@ public class CombatFX {
         defendBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                pc.basicDefend(pc);
-                updateScreen(gc, theScene, pc, enemy);
+
+                if (pc.getActionPoints() > 0) {
+                    pc.basicDefend(pc);
+                    updateScreen(gc, theScene, pc, enemy);
+                }
             }
         });
         playerActions.getChildren().add(defendBtn);
@@ -56,6 +63,7 @@ public class CombatFX {
         fleeBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                pc.setActionPoints(startingActionPoints);
                 playerActions.getChildren().clear();
                 MapScreen ms = new MapScreen();
                 ms.createMap(gc, theScene, pc);
@@ -67,14 +75,71 @@ public class CombatFX {
         endTurnBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                combat.setPlayerTurn(false);
-                combat.combatCycle(pc, enemy);
-                updateScreen(gc, theScene, pc, enemy);
+                if (enemy.getHealth() > 0 && pc.getHealth() > 0) {
+                    pc.setActionPoints(startingActionPoints);
+                    combat.setPlayerTurn(false);
+                    combat.combatCycle(pc, enemy, gc, theScene);
+                    updateScreen(gc, theScene, pc, enemy);
+                }
+                else {
+                    pc.setActionPoints(startingActionPoints);
+                    playerActions.getChildren().clear();
+                    endOfCombat(pc, enemy, gc, theScene);
+                }
             }
         });
         playerActions.getChildren().add(endTurnBtn);
 
         ((Group)theScene.getRoot()).getChildren().add(playerActions);
+    }
+
+    private void endOfCombat(PlayerCharacter pc, Enemy enemy, GraphicsContext gc, Scene theScene) {
+        gc.clearRect(0, 0, 1080, 720);
+        Image combatBG = new Image("backgrounds/mainmenubg.png");
+        gc.drawImage(combatBG, 0, 0);
+
+        gc.setFill( Color.BLACK );
+        gc.setLineWidth(2);
+        Font theFont = Font.font( "Times New Roman", FontWeight.BOLD, 42 );
+        gc.setFont( theFont );
+
+        HBox endButtons = new HBox();
+        endButtons.setLayoutX(490);
+        endButtons.setLayoutY(550);
+
+        if (pc.getHealth() <= 0){
+            gc.drawImage(combatBG, 0, 0);
+            gc.fillText("GAME OVER", 420, 300);
+
+            Button fleeBtn = new Button("Back to Menu");
+            fleeBtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    endButtons.getChildren().clear();
+                    TitleScreen ts = new TitleScreen();
+                    ts.showTitleScreen(gc, theScene);
+                }
+            });
+            endButtons.getChildren().add(fleeBtn);
+
+        }
+        else {
+            gc.fillText("VICTORY", 445, 300);
+            pc.setGold(pc.getGold() + 10 * enemy.getLootChance());
+            gc.fillText("YOU NOW HAVE " + pc.getGold() + " GOLD", 265, 350);
+
+            Button fleeBtn = new Button("Back to Map");
+            fleeBtn.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    endButtons.getChildren().clear();
+                    MapScreen ms = new MapScreen();
+                    ms.createMap(gc, theScene, pc);
+                }
+            });
+            endButtons.getChildren().add(fleeBtn);
+        }
+        ((Group)theScene.getRoot()).getChildren().add(endButtons);
     }
 
     public void updateScreen(GraphicsContext gc, Scene theScene, PlayerCharacter pc, Enemy enemy) {
@@ -100,11 +165,11 @@ public class CombatFX {
         }
 
         gc.setFill( Color.BLACK );
-        gc.setStroke( Color.BLACK );
         gc.setLineWidth(2);
         Font theFont = Font.font( "Times New Roman", FontWeight.BOLD, 22 );
         gc.setFont( theFont );
 
+        gc.fillText("Action points: " + pc.getActionPoints(), 230, 550);
         gc.fillText( "Health: " + pc.getHealth(), 230, 580 );
         gc.fillText( "Armour: " + pc.getArmour(), 230, 610 );
         gc.fillText( "Health: " + enemy.getHealth(), 700, 580 );
