@@ -17,7 +17,7 @@ public class MiscEncounterFX {
         gc.drawImage(encounterBG, 0, 0);
 
         HBox leaveBtnBox = new HBox();
-        leaveBtnBox.setLayoutX(400);
+        leaveBtnBox.setLayoutX(510);
         leaveBtnBox.setLayoutY(500);
 
         Button leaveBtn = new Button("Leave");

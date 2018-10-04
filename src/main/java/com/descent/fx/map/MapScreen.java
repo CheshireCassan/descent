@@ -131,8 +131,6 @@ public class MapScreen {
 
         gc.fillText( "Health: " + pc.getHealth(), 65, 40 );
         gc.fillText("Gold: " + pc.getGold(), 65, 70);
-
-
         }
 
         public void clearScene(VBox vbox1, VBox vbox2, HBox hbox1, HBox hbox2){

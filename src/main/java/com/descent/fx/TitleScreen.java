@@ -17,7 +17,7 @@ public class TitleScreen {
     public void showTitleScreen(GraphicsContext gc, Scene theScene) {
 
         PlayerCharacter pc = new PlayerCharacter(
-                100, 0, 0, 10, 10, 10, 2, 5);
+                100, 0, 250, 10, 10, 10, 2, 5);
 
         Image titleBG = new Image("backgrounds/mainmenubg.png");
         gc.drawImage(titleBG, 0, 0);
