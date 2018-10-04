@@ -1,7 +1,7 @@
 package com.descent.encounters;
 import com.descent.fx.CombatFX;
 import com.descent.fx.MerchantFX;
-import com.descent.fx.map.MiscEncounterFX;
+import com.descent.fx.MiscEncounterFX;
 import com.descent.playercharacter.PlayerCharacter;
 import javafx.scene.Scene;
 import javafx.scene.canvas.GraphicsContext;

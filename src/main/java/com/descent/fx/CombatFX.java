@@ -113,8 +113,8 @@ public class CombatFX {
             gc.drawImage(combatBG, 0, 0);
             gc.fillText("GAME OVER", 420, 300);
 
-            Button fleeBtn = new Button("Back to Menu");
-            fleeBtn.setOnAction(new EventHandler<ActionEvent>() {
+            Button backBtn = new Button("Back to Menu");
+            backBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     endButtons.getChildren().clear();
@@ -122,7 +122,7 @@ public class CombatFX {
                     ts.showTitleScreen(gc, theScene);
                 }
             });
-            endButtons.getChildren().add(fleeBtn);
+            endButtons.getChildren().add(backBtn);
 
         }
         else {
@@ -130,8 +130,8 @@ public class CombatFX {
             pc.setGold(pc.getGold() + 10 * enemy.getLootChance());
             gc.fillText("YOU NOW HAVE " + pc.getGold() + " GOLD", 265, 350);
 
-            Button fleeBtn = new Button("Back to Map");
-            fleeBtn.setOnAction(new EventHandler<ActionEvent>() {
+            Button backBtn = new Button("Back to Map");
+            backBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     endButtons.getChildren().clear();
@@ -139,7 +139,7 @@ public class CombatFX {
                     ms.createMap(gc, theScene, pc);
                 }
             });
-            endButtons.getChildren().add(fleeBtn);
+            endButtons.getChildren().add(backBtn);
         }
         ((Group)theScene.getRoot()).getChildren().add(endButtons);
     }

@@ -20,7 +20,7 @@ import javafx.scene.text.FontWeight;
 public class BossCombatFX {
     public void startCombat(GraphicsContext gc, Scene theScene, PlayerCharacter pc){
 
-        EnemyBoss boss = new EnemyBoss(250, 0, 20, 10, 0, 10);
+        EnemyBoss boss = new EnemyBoss(200, 0, 20, 10, 0, 10);
 
         Combat combat = new Combat();
 
@@ -123,20 +123,24 @@ public class BossCombatFX {
 
         }
         else {
-            gc.fillText("VICTORY", 445, 300);
-            pc.setGold(pc.getGold() + 10 * enemy.getLootChance());
-            gc.fillText("YOU NOW HAVE " + pc.getGold() + " GOLD", 265, 350);
+            gc.fillText("VICTORY!", 445, 300);
+            gc.fillText("YOU HAVE DEFEATED THE BOSS", 200, 350);
+            gc.fillText("AND CLEARED THE DUNGEON.", 220, 400);
+            gc.fillText("CONGRATULATIONS!", 315, 450);
 
-            Button fleeBtn = new Button("Back to Map");
-            fleeBtn.setOnAction(new EventHandler<ActionEvent>() {
+            endButtons.setLayoutX(490);
+            endButtons.setLayoutY(550);
+
+            Button backBtn = new Button("Back to Menu");
+            backBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     endButtons.getChildren().clear();
-                    MapScreen ms = new MapScreen();
-                    ms.createMap(gc, theScene, pc);
+                    TitleScreen ts = new TitleScreen();
+                    ts.showTitleScreen(gc, theScene);
                 }
             });
-            endButtons.getChildren().add(fleeBtn);
+            endButtons.getChildren().add(backBtn);
         }
         ((Group)theScene.getRoot()).getChildren().add(endButtons);
     }
