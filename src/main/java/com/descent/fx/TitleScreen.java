@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 import java.nio.file.Paths;
 
 public class TitleScreen {
@@ -44,7 +43,6 @@ public class TitleScreen {
                 ms.createMap(gc, theScene, pc);
                 hbox.getChildren().remove(beginBtn);
             }
-
         });
         hbox.getChildren().add(beginBtn);
         ((Group)theScene.getRoot()).getChildren().add(hbox);

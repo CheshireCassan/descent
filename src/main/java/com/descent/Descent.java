@@ -37,16 +37,6 @@ public class Descent extends Application{
         TitleScreen titleScreen = new TitleScreen();
         titleScreen.showTitleScreen(gc, theScene);
 
-        String musicFile = "maintheme.mp3";
-
-
-//        final long startNanoTime = System.nanoTime();
-//        new AnimationTimer() {
-//            public void handle(long currentNanoTime) {
-//
-//            }
-//        }.start();
-
         theStage.show();
     }
 
