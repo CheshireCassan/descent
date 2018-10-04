@@ -1,6 +1,5 @@
 package com.descent.fx;
 
-import com.descent.Descent;
 import com.descent.Inventory;
 import com.descent.combat.Combat;
 import com.descent.enemy.*;
@@ -18,16 +17,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
-public class CombatFX {
-
+public class BossCombatFX {
     public void startCombat(GraphicsContext gc, Scene theScene, PlayerCharacter pc){
 
-        EnemyGenerator eg = new EnemyGenerator();
-        Enemy enemy = eg.generateEnemy();
+        EnemyBoss boss = new EnemyBoss(250, 0, 20, 10, 0, 10);
 
         Combat combat = new Combat();
 
-        updateScreen(gc, theScene, pc, enemy);
+        updateScreen(gc, theScene, pc, boss);
 
         HBox playerActions = new HBox();
         playerActions.setLayoutX(100);
@@ -40,8 +37,8 @@ public class CombatFX {
             @Override
             public void handle(ActionEvent event) {
                 if (pc.getActionPoints() > 0) {
-                    pc.basicAttack(pc, enemy);
-                    updateScreen(gc, theScene, pc, enemy);
+                    pc.basicAttack(pc, boss);
+                    updateScreen(gc, theScene, pc, boss);
                 }
             }
         });
@@ -54,7 +51,7 @@ public class CombatFX {
 
                 if (pc.getActionPoints() > 0) {
                     pc.basicDefend(pc);
-                    updateScreen(gc, theScene, pc, enemy);
+                    updateScreen(gc, theScene, pc, boss);
                 }
             }
         });
@@ -76,17 +73,17 @@ public class CombatFX {
         endTurnBtn.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (enemy.getHealth() > 0 && pc.getHealth() > 0) {
+                if (boss.getHealth() > 0 && pc.getHealth() > 0) {
                     pc.setActionPoints(startingActionPoints);
                     combat.setPlayerTurn(false);
-                    combat.combatCycle(pc, enemy, gc, theScene);
-                    updateScreen(gc, theScene, pc, enemy);
+                    combat.combatCycle(pc, boss, gc, theScene);
+                    updateScreen(gc, theScene, pc, boss);
                 }
                 else {
                     pc.setActionPoints(startingActionPoints);
                     pc.setArmour(0);
                     playerActions.getChildren().clear();
-                    endOfCombat(pc, enemy, gc, theScene);
+                    endOfCombat(pc, boss, gc, theScene);
                 }
             }
         });
@@ -152,19 +149,8 @@ public class CombatFX {
         Image player = new Image("characters/playercharacter2.png");
         gc.drawImage(player, 200, 200);
 
-        Image enemyskeleton = new Image("characters/enemyskeleton.png");
-        Image enemybat = new Image("characters/enemybat.png");
-        Image enemybrute = new Image("characters/enemybrute.png");
-
-        if (enemy instanceof EnemySkeleton){
-            gc.drawImage(enemyskeleton, 600, 200);
-        }
-        else if (enemy instanceof EnemyBat){
-            gc.drawImage(enemybat, 600, 200);
-        }
-        else if (enemy instanceof EnemyBrute){
-            gc.drawImage(enemybrute, 600, 200);
-        }
+        Image enemysBoss = new Image("characters/enemyboss.png");
+        gc.drawImage(enemysBoss, 550, 100);
 
         gc.setFill( Color.BLACK );
         gc.setLineWidth(2);
@@ -180,4 +166,5 @@ public class CombatFX {
         Inventory inven = new Inventory();
         inven.displayInventoryCombat(pc, gc, theScene);
     }
+
 }

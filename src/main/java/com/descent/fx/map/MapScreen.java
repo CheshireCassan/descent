@@ -2,6 +2,7 @@ package com.descent.fx.map;
 
 import com.descent.MapGen;
 import com.descent.encounters.Encounter;
+import com.descent.fx.BossCombatFX;
 import com.descent.fx.FinalMerchantFX;
 import com.descent.playercharacter.PlayerCharacter;
 import javafx.event.ActionEvent;
@@ -88,6 +89,8 @@ public class MapScreen {
                         @Override
                         public void handle(ActionEvent event) {
                             clearScene(bossVBox, finalShopVBox, encounterHBox1, encounterHBox2);
+                            BossCombatFX bcfx = new BossCombatFX();
+                            bcfx.startCombat(gc, theScene, pc);
                         }
                     });
                     bossVBox.getChildren().add(bossBtn);
