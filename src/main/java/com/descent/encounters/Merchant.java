@@ -1,5 +1,6 @@
 package com.descent.encounters;
 
+import com.descent.EnumStatBonuses;
 import com.descent.equipment.*;
 import com.descent.playercharacter.PlayerCharacter;
 
@@ -10,7 +11,6 @@ public class Merchant {
     private Random rnd = new Random();
     private int equipCost = 300;
     private int healCost = 50;
-    private int healAmount = 25;
 
     public int getEquipCost() {
         return equipCost;
@@ -30,7 +30,7 @@ public class Merchant {
 
     public void healPlayer(PlayerCharacter pc) {
         pc.setGold(pc.getGold() - healCost);
-        pc.setHealth(pc.getHealth() + healAmount);
+        pc.setHealth(pc.getHealth() + EnumStatBonuses.medHealth.getStat());
     }
 
     public Equipment generateItem(){

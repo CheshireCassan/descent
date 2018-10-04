@@ -1,23 +1,16 @@
 package com.descent;
 
 import com.descent.fx.TitleScreen;
-import com.descent.playercharacter.PlayerCharacter;
-import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
-import java.io.File;
 
 public class Descent extends Application{
 
     public static void main(String[] args) {
-
         launch(args);
     }
 
@@ -39,7 +32,4 @@ public class Descent extends Application{
 
         theStage.show();
     }
-
-
-
 }

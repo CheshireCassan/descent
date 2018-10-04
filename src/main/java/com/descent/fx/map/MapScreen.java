@@ -56,7 +56,7 @@ public class MapScreen {
             bossVBox.setLayoutX(430);
             bossVBox.setLayoutY(490);
 
-            VBox finalShopVBox = new VBox(0);
+            VBox finalShopVBox = new VBox();
             finalShopVBox.setLayoutX(480);
             finalShopVBox.setLayoutY(350);
 
@@ -111,7 +111,6 @@ public class MapScreen {
                             clearScene(bossVBox, finalShopVBox, encounterHBox1, encounterHBox2);
                             Encounter encounter = new Encounter();
                             encounter.questionTileClick(encounterIDs, gc, theScene, pc);
-
                         }
                     });
 
@@ -136,7 +135,7 @@ public class MapScreen {
         gc.fillText("Gold: " + pc.getGold(), 65, 70);
         }
 
-        public void clearScene(VBox vbox1, VBox vbox2, HBox hbox1, HBox hbox2){
+        private void clearScene(VBox vbox1, VBox vbox2, HBox hbox1, HBox hbox2){
             vbox1.getChildren().clear();
             vbox2.getChildren().clear();
             hbox1.getChildren().clear();

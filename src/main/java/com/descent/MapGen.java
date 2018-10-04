@@ -1,10 +1,8 @@
 package com.descent;
 
-import com.descent.enemy.*;
 import com.descent.fx.map.BossTile;
 import com.descent.fx.map.FinalShopTile;
 import com.descent.fx.map.MapTile;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -13,26 +11,27 @@ public class MapGen {
 
     private final int DESIRED_TILE_COUNT = 10;
     private Random rnd = new Random();
-    private int merchantCount;
-    private int encounterCount;
-    private int enemyCount;
-    private int totalTileCount = 0;
 
     private List<MapTile> mapTiles = new ArrayList<>();
     private List<Integer> encounterIDs = new ArrayList<>();
 
     public void generateMap() {
 
+        int merchantCount = 0;
+        int encounterCount = 0;
+        int enemyCount = 0;
+        int totalTileCount = 0;
+
         for (int i = 0; i <= DESIRED_TILE_COUNT; i++) {
 
             if (totalTileCount == DESIRED_TILE_COUNT)
-                createBoss();
+                mapTiles.add(new BossTile());
 
                 // Tile before the boss should always be a merchant
-            else if (totalTileCount == DESIRED_TILE_COUNT - 1)
-                createFinalMerchant();
-
-            else {
+            else if (totalTileCount == DESIRED_TILE_COUNT - 1) {
+                totalTileCount++;
+                mapTiles.add(new FinalShopTile());
+            } else {
                 int encounterID = rnd.nextInt(3);
 
                 //making sure there isn't more than the desired amount of each map tile
@@ -45,69 +44,33 @@ public class MapGen {
 
                 switch (encounterID) {
                     case 0:
-                        createEnemy();
+                        enemyCount++;
+                        totalTileCount++;
+                        mapTiles.add(new MapTile());
+                        encounterIDs.add(0);
                         break;
                     case 1:
-                        createMerchant();
+                        merchantCount++;
+                        totalTileCount++;
+                        mapTiles.add(new MapTile());
+                        encounterIDs.add(1);
                         break;
                     case 2:
-                        createEncounter();
+                        encounterCount++;
+                        totalTileCount++;
+                        mapTiles.add(new MapTile());
+                        encounterIDs.add(2);
                         break;
                 }
             }
         }
     }
 
-
-    private void createEnemy(){
-        Enemy enemy = enemyChoice();
-        enemyCount++;
-        totalTileCount++;
-        mapTiles.add(new MapTile());
-        encounterIDs.add(0);
-    }
-
-    private Enemy enemyChoice(){
-        int nr = rnd.nextInt(3);
-        switch (nr){
-            case 0:
-                return new EnemySkeleton();
-            case 1:
-                return new EnemyBat();
-            case 2:
-                return new EnemyBrute();
-        }
-        return null;
-    }
-
-    private void createMerchant(){
-        merchantCount++;
-        totalTileCount++;
-        mapTiles.add(new MapTile());
-        encounterIDs.add(1);
-    }
-
-    private void createFinalMerchant() {
-        totalTileCount++;
-        mapTiles.add(new FinalShopTile());
-    }
-
-    private void createEncounter(){
-        encounterCount++;
-        totalTileCount++;
-        mapTiles.add(new MapTile());
-        encounterIDs.add(2);
-    }
-
-    private void createBoss(){
-        mapTiles.add(new BossTile());
-    }
-
-    public List<MapTile> getMapTiles(){
+    public List<MapTile> getMapTiles() {
         return mapTiles;
     }
 
-    public List<Integer> getEncounterIDs(){
+    public List<Integer> getEncounterIDs() {
         return encounterIDs;
     }
 }

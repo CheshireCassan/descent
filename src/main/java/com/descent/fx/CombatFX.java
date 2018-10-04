@@ -1,6 +1,5 @@
 package com.descent.fx;
 
-import com.descent.Descent;
 import com.descent.Inventory;
 import com.descent.combat.Combat;
 import com.descent.enemy.*;
@@ -65,6 +64,7 @@ public class CombatFX {
             @Override
             public void handle(ActionEvent event) {
                 pc.setActionPoints(startingActionPoints);
+                pc.setArmour(0);
                 playerActions.getChildren().clear();
                 MapScreen ms = new MapScreen();
                 ms.createMap(gc, theScene, pc);

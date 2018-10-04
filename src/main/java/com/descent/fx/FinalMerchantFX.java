@@ -25,11 +25,11 @@ public class FinalMerchantFX {
         leaveBtnBox.setLayoutY(500);
         FinalMerchant fmerch = new FinalMerchant();
 
-        Button healBtn = new Button("Heal (100 Gold)");
+        Button healBtn = new Button("Heal (" + (fmerch.getHealCost() * 2) + " Gold)");
             healBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    if (pc.getGold() >= 100) {
+                    if (pc.getGold() >= fmerch.getHealCost() * 2) {
                         fmerch.healPlayer(pc);
                         updateStatInfo(pc, gc, theScene);
                     }

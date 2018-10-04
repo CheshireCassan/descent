@@ -1,6 +1,5 @@
 package com.descent.combat;
 
-import com.descent.enemy.Enemy;
 import com.descent.enemy.EnemyBoss;
 import com.descent.playercharacter.PlayerCharacter;
 import javafx.scene.Scene;
@@ -29,25 +28,30 @@ public class BossCombat {
                 return;
             }
             else if (!playerTurn){
-                int selection = rnd.nextInt(9);
+                int selection = rnd.nextInt(14);
 
                 switch (selection){
                     case 0:
                     case 1:
                     case 2:
+                    case 3:
+                    case 4:
                         enemy.basicAttack(enemy, pc);
                         break;
 
-                    case 3:
-                    case 4:
                     case 5:
-                        enemy.basicDefend(enemy);
-                        break;
                     case 6:
-                        enemy.tankUp(enemy);
-                        break;
                     case 7:
                     case 8:
+                    case 9:
+                        enemy.basicDefend(enemy);
+                        break;
+                    case 10:
+                        enemy.tankUp(enemy);
+                        break;
+                    case 11:
+                    case 12:
+                    case 13:
                         enemy.focusedAttack(enemy, pc);
                         break;
                 }

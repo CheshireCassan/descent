@@ -1,7 +1,7 @@
 package com.descent.fx;
 
 import com.descent.Inventory;
-import com.descent.combat.Combat;
+import com.descent.combat.BossCombat;
 import com.descent.enemy.*;
 import com.descent.fx.map.MapScreen;
 import com.descent.playercharacter.PlayerCharacter;
@@ -20,9 +20,9 @@ import javafx.scene.text.FontWeight;
 public class BossCombatFX {
     public void startCombat(GraphicsContext gc, Scene theScene, PlayerCharacter pc){
 
-        EnemyBoss boss = new EnemyBoss(200, 0, 20, 10, 0, 10);
+        EnemyBoss boss = new EnemyBoss(250, 0, 20, 10, 0, 10);
 
-        Combat combat = new Combat();
+        BossCombat combat = new BossCombat();
 
         updateScreen(gc, theScene, pc, boss);
 
@@ -62,6 +62,7 @@ public class BossCombatFX {
             @Override
             public void handle(ActionEvent event) {
                 pc.setActionPoints(startingActionPoints);
+                pc.setArmour(0);
                 playerActions.getChildren().clear();
                 MapScreen ms = new MapScreen();
                 ms.createMap(gc, theScene, pc);

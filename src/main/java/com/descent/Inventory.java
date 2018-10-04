@@ -17,15 +17,16 @@ public class Inventory {
 
         gc.fillText("Inventory: ", 700, 40);
 
-        int x = 700;
-        int y = 70;
+        //Positions for start of the inventory display
+        int xPosition = 700;
+        int yPosition = 70;
 
+        //Increasing Y each time to get each item on a new line
         for (int i = 0; i < pc.getInventory().size(); i++) {
             String display = pc.getInventory().get(i).getName() + ": + " + pc.getInventory().get(i).getBonus();
-            gc.fillText(display,x, y);
-            y = y + 30;
+            gc.fillText(display,xPosition, yPosition);
+            yPosition = yPosition + 30;
         }
-        y = 70;
     }
 
     public void displayInventoryCombat(PlayerCharacter pc, GraphicsContext gc, Scene theScene) {
@@ -36,14 +37,13 @@ public class Inventory {
 
         gc.fillText("Inventory: ", 50, 40);
 
-        int x = 50;
-        int y = 70;
+        int xPosition = 50;
+        int yPosition = 70;
 
         for (int i = 0; i < pc.getInventory().size(); i++) {
             String display = pc.getInventory().get(i).getName() + ": + " + pc.getInventory().get(i).getBonus();
-            gc.fillText(display,x, y);
-            y = y + 30;
+            gc.fillText(display,xPosition, yPosition);
+            yPosition = yPosition + 30;
         }
-        y = 70;
     }
 }
