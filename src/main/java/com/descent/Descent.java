@@ -8,7 +8,11 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Descent extends Application{
 
@@ -33,13 +37,15 @@ public class Descent extends Application{
         TitleScreen titleScreen = new TitleScreen();
         titleScreen.showTitleScreen(gc, theScene);
 
+        String musicFile = "maintheme.mp3";
 
-        final long startNanoTime = System.nanoTime();
-        new AnimationTimer() {
-            public void handle(long currentNanoTime) {
 
-            }
-        }.start();
+//        final long startNanoTime = System.nanoTime();
+//        new AnimationTimer() {
+//            public void handle(long currentNanoTime) {
+//
+//            }
+//        }.start();
 
         theStage.show();
     }

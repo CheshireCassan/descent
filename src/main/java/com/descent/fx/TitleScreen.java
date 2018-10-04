@@ -11,10 +11,16 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
+import java.nio.file.Paths;
 
 public class TitleScreen {
 
     public void showTitleScreen(GraphicsContext gc, Scene theScene) {
+
+        music();
 
         PlayerCharacter pc = new PlayerCharacter(
                 100, 0, 0, 10, 10, 10, 2, 5);
@@ -42,5 +48,13 @@ public class TitleScreen {
         });
         hbox.getChildren().add(beginBtn);
         ((Group)theScene.getRoot()).getChildren().add(hbox);
+    }
+
+    MediaPlayer mediaPlayer;
+    public void music(){
+        String bip = "maintheme.mp3";
+        Media hit = new Media(Paths.get(bip).toUri().toString());
+        mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.play();
     }
 }
