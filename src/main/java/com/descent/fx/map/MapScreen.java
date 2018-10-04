@@ -14,6 +14,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -120,6 +123,14 @@ public class MapScreen {
             ((Group) theScene.getRoot()).getChildren().add(bossVBox);
             ((Group) theScene.getRoot()).getChildren().add(encounterHBox1);
             ((Group) theScene.getRoot()).getChildren().add(encounterHBox2);
+
+        gc.setFill( Color.BLACK );
+        gc.setLineWidth(2);
+        Font theFont = Font.font( "Times New Roman", FontWeight.BOLD, 22 );
+        gc.setFont( theFont );
+
+        gc.fillText( "Health: " + pc.getHealth(), 65, 40 );
+        gc.fillText("Gold: " + pc.getGold(), 65, 70);
 
 
         }

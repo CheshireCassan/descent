@@ -83,6 +83,7 @@ public class CombatFX {
                 }
                 else {
                     pc.setActionPoints(startingActionPoints);
+                    pc.setArmour(0);
                     playerActions.getChildren().clear();
                     endOfCombat(pc, enemy, gc, theScene);
                 }
