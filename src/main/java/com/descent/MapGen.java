@@ -12,7 +12,7 @@ public class MapGen {
     private final int DESIRED_TILE_COUNT = 10;
     private Random rnd = new Random();
 
-    public int getDESIRED_TILE_COUNT() {
+    int getDESIRED_TILE_COUNT() {
         return DESIRED_TILE_COUNT;
     }
 
@@ -49,23 +49,18 @@ public class MapGen {
                 switch (encounterID) {
                     case 0:
                         enemyCount++;
-                        totalTileCount++;
-                        mapTiles.add(new MapTile());
-                        encounterIDs.add(0);
                         break;
                     case 1:
                         merchantCount++;
-                        totalTileCount++;
-                        mapTiles.add(new MapTile());
-                        encounterIDs.add(1);
                         break;
                     case 2:
                         encounterCount++;
-                        totalTileCount++;
-                        mapTiles.add(new MapTile());
-                        encounterIDs.add(2);
                         break;
                 }
+
+                totalTileCount++;
+                mapTiles.add(new MapTile());
+                encounterIDs.add(encounterID);
             }
         }
     }

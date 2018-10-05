@@ -5,15 +5,12 @@ import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentCloak extends Equipment {
 
-    private String name = "Cloak";
-    private String bonus = "" + EnumStatBonuses.medDodge.getStat() + " Dodge";
-
     public String getName(){
-        return name;
+        return "Cloak";
     }
 
     public String getBonus(){
-        return bonus;
+        return "" + EnumStatBonuses.medDodge.getStat() + " Dodge";
     }
 
     @Override

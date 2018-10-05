@@ -1,4 +1,5 @@
-import com.descent.enemy.Enemy;
+package com.descent.enemy;
+
 import com.descent.playercharacter.PlayerCharacter;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -30,6 +31,10 @@ public class EnemyTest {
         final int actual = enemy.getArmour();
 
         Assert.assertEquals(expected, actual);
+    }
+
+    private class Enemy extends com.descent.enemy.Enemy{
+
     }
 
 }

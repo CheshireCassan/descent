@@ -1,9 +1,7 @@
 package com.descent.playercharacter;
 
-import com.descent.EnumStatBonuses;
 import com.descent.enemy.Enemy;
 import com.descent.equipment.Equipment;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -29,19 +27,7 @@ public class PlayerCharacter {
         inventory.add(item);
     }
 
-    public PlayerCharacter(int health, int armour, int gold, int strength, int dodge, int endurance, int actionPoints, int critChance) {
-        this.health = health;
-        this.armour = armour;
-        this.gold = gold;
-        this.strength = strength;
-        this.dodge = dodge;
-        this.endurance = endurance;
-        this.actionPoints = actionPoints;
-        this.critChance = critChance;
-    }
-
     public PlayerCharacter(){
-
     }
 
     public int getHealth() {
@@ -139,12 +125,28 @@ public class PlayerCharacter {
         pc.setActionPoints(pc.getActionPoints() - 1);
     }
 
-    public PlayerCharacterDemonForm transform(PlayerCharacter pc){
-        PlayerCharacterDemonForm pcdf = new PlayerCharacterDemonForm(
-                pc.getHealth() + 200, pc.getArmour(), pc.getGold(), pc.getStrength() * 2,
-                pc.getDodge() + EnumStatBonuses.largeDodge.getStat(), pc.getEndurance() * 2,
-                pc.getActionPoints() + 2, pc.getCritChance() + EnumStatBonuses.largeCritChance.getStat());
-        return pcdf;
+    public PlayerCharacter generatePlayer(){
+        PlayerCharacter pc = new PlayerCharacter();
+        pc.setHealth(100);
+        pc.setArmour(0);
+        pc.setGold(0);
+        pc.setStrength(10);
+        pc.setDodge(10);
+        pc.setEndurance(10);
+        pc.setActionPoints(2);
+        pc.setCritChance(5);
+        return pc;
     }
+
+
+    //Transformation to be worked on when Demon Form is implemented
+
+//    public PlayerCharacterDemonForm transform(PlayerCharacter pc){
+//        PlayerCharacterDemonForm pcdf = new PlayerCharacterDemonForm(
+//                pc.getHealth() + 200, pc.getArmour(), pc.getGold(), pc.getStrength() * 2,
+//                pc.getDodge() + EnumStatBonuses.largeDodge.getStat(), pc.getEndurance() * 2,
+//                pc.getActionPoints() + 2, pc.getCritChance() + EnumStatBonuses.largeCritChance.getStat());
+//        return pcdf;
+//    }
 
 }

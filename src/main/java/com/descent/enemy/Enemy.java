@@ -4,7 +4,7 @@ import com.descent.playercharacter.PlayerCharacter;
 
 import java.util.Random;
 
-public class Enemy implements IEnemyAbilities {
+public abstract class Enemy implements IEnemyAbilities {
     private int health;
     private int armour;
     private int strength;

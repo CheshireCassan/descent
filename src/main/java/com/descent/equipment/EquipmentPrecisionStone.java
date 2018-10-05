@@ -5,15 +5,12 @@ import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentPrecisionStone extends Equipment {
 
-    private String name = "Precision Stone";
-    private String bonus = "" + EnumStatBonuses.medCritChance.getStat() + " Crit";
-
     public String getName(){
-        return name;
+        return "Precision Stone";
     }
 
     public String getBonus(){
-        return bonus;
+        return "" + EnumStatBonuses.medCritChance.getStat() + " Crit";
     }
 
     @Override

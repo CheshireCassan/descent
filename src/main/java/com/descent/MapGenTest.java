@@ -1,4 +1,5 @@
-import com.descent.MapGen;
+package com.descent;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,7 +14,5 @@ public class MapGenTest {
         final int actual = mG.getMapTiles().size();
 
         Assert.assertEquals(expected, actual);
-
     }
-
 }

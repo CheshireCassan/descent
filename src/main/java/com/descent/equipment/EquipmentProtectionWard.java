@@ -4,15 +4,13 @@ import com.descent.EnumStatBonuses;
 import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentProtectionWard extends Equipment {
-    private String name = "Protection Ward";
-    private String bonus = "" + EnumStatBonuses.medEndurance.getStat() + " Endurance";
 
     public String getName(){
-        return name;
+        return "Protection Ward";
     }
 
     public String getBonus(){
-        return bonus;
+        return "" + EnumStatBonuses.medEndurance.getStat() + " Endurance";
     }
 
     @Override

@@ -5,15 +5,12 @@ import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentRefinedBlade extends Equipment {
 
-    private String name = "Refined Blade";
-    private String bonus = "" + EnumStatBonuses.medStrength.getStat() + " Strength";
-
     public String getName(){
-        return name;
+        return "Refined Blade";
     }
 
     public String getBonus(){
-        return bonus;
+        return "" + EnumStatBonuses.medStrength.getStat() + " Strength";
     }
 
     @Override

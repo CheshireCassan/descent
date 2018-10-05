@@ -4,15 +4,12 @@ import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentEnergyRing extends Equipment {
 
-    private String name = "Energy Ring";
-    private String bonus = "" + 1 + " Action Points";
-
     public String getName(){
-        return name;
+        return "Energy Ring";
     }
 
     public String getBonus(){
-        return bonus;
+        return "1 Action Points";
     }
 
     @Override

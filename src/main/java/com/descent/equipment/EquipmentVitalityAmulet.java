@@ -5,15 +5,12 @@ import com.descent.playercharacter.PlayerCharacter;
 
 public class EquipmentVitalityAmulet extends Equipment {
 
-    private String name = "Vitality Amulet";
-    private String bonus = "" + EnumStatBonuses.medHealth.getStat() + " Max Health";
-
     public String getName(){
-        return name;
+        return "Vitality Amulet";
     }
 
     public String getBonus(){
-        return bonus;
+        return "" + EnumStatBonuses.medHealth.getStat() + " Max Health";
     }
 
     @Override
