@@ -1,5 +1,4 @@
-package com.descent.encounters;
-
+import com.descent.encounters.MiscEncounter;
 import com.descent.playercharacter.PlayerCharacter;
 import org.testng.Assert;
 import org.testng.annotations.Test;

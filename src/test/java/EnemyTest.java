@@ -1,5 +1,3 @@
-package com.descent.enemy;
-
 import com.descent.playercharacter.PlayerCharacter;
 import org.testng.Assert;
 import org.testng.annotations.Test;

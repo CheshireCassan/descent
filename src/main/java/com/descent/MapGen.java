@@ -12,7 +12,7 @@ public class MapGen {
     private final int DESIRED_TILE_COUNT = 10;
     private Random rnd = new Random();
 
-    int getDESIRED_TILE_COUNT() {
+    public int getDESIRED_TILE_COUNT() {
         return DESIRED_TILE_COUNT;
     }
 

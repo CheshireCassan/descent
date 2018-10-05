@@ -1,5 +1,4 @@
-package com.descent;
-
+import com.descent.MapGen;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
