@@ -40,6 +40,10 @@ public class PlayerCharacter {
         this.critChance = critChance;
     }
 
+    public PlayerCharacter(){
+
+    }
+
     public int getHealth() {
         return health;
     }

@@ -33,7 +33,7 @@ public class Merchant {
         pc.setHealth(pc.getHealth() + EnumStatBonuses.medHealth.getStat());
     }
 
-    public Equipment generateItem(){
+    private Equipment generateItem(){
         int selection = rnd.nextInt(6);
         switch (selection){
             case 0:

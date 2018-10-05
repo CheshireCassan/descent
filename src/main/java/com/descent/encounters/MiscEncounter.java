@@ -10,6 +10,10 @@ public class MiscEncounter {
     private Random rnd = new Random();
     private int goldReward = 40;
 
+    public int getGoldReward() {
+        return goldReward;
+    }
+
     public void openChest(PlayerCharacter pc) {
         int selection = rnd.nextInt(4);
         switch (selection){
@@ -23,11 +27,11 @@ public class MiscEncounter {
         }
     }
 
-    private void giveGold(PlayerCharacter pc) {
+    public void giveGold(PlayerCharacter pc) {
         pc.setGold(pc.getGold() + goldReward);
     }
 
-    public Equipment generateItem(){
+    private Equipment generateItem(){
         int selection = rnd.nextInt(6);
         switch (selection){
             case 0:
